@@ -1,8 +1,7 @@
-package states;
+package ;
 
 import flash.display.BlendMode;
 import flixel.effects.particles.FlxEmitter;
-import flixel.effects.particles.FlxParticle;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -10,7 +9,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxRandom;
 
-class Play extends FlxState
+class State extends FlxState
 {
 	/**
 	 * Allows users to toggle the effect on and off with the space bar.
@@ -77,12 +76,12 @@ class Play extends FlxState
 		emitter.gravity = -40;
 		emitter.setXSpeed( -20, 20);
 		emitter.setYSpeed( -75, -25);
-		var particle:FlxParticle;
+		var particle: MyObject;
 		var colors:Array<Int> = [0xFF444444,0x55888888,0x88CCCCCC];
 		
 		for (i in 0...particles)
 		{
-			particle = new FlxParticle();
+			particle = new MyObject();
 			particle.makeGraphic(32, 32, colors[Std.int(FlxRandom.float() * colors.length)]);
 			particle.exists = false;
 			emitter.add(particle);
